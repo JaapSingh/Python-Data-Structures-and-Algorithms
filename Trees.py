@@ -1,5 +1,8 @@
 #differnet types of trees:
 # BST has ordering property
+# in order: left, cur, right
+# pre order: cur, left, right
+# post order: left, right, cur
 # MinHeap is essentially a BST, without ordering propery (i.e. complete)
   # can perform insert with bubble up in O(logn), and remove min in O(logn)
 # tries are used for strings, and one of your children will be a null node if it makes a word
@@ -21,7 +24,7 @@ class Node:
         return str(self.value)
 
 # test input
-my_array = [1, 2, 3, 4, 5]
+my_array = [1, 2, 3, 4, 5, 6]
 my_node= Node(3)
 my_node.left = Node(2)
 my_node.right = Node(4)
@@ -84,4 +87,23 @@ def print_tree_BFS(node):
 
 print_tree_BFS(my_node)
 insert_array(array_tree, my_array)
-print_tree_BFS(array_tree)
+#print_tree_BFS(array_tree)
+
+def height(node):
+    if (node == None):
+        return 0
+    else:
+        return max(height(node.left), height(node.right)) + 1
+
+def check_balanced(node):
+    if abs(height(node.left) - height(node.right)) > 1:
+        return False
+    else:
+        return True
+unbalanced_tree = Node(1)
+insert(unbalanced_tree, 2)
+insert(unbalanced_tree, 3)
+insert(unbalanced_tree, 4)
+print_tree_BFS(unbalanced_tree)
+print(height(unbalanced_tree))
+print(check_balanced(unbalanced_tree))
