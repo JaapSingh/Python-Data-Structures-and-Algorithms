@@ -34,10 +34,8 @@ def center_expand(s, left, right, length):
 # example: "babaaabaad"
 def max_substring(s):
 	length = len(s)
-	max_length=0
 	return_string = ""
 	for i in range(0, length):
-		curr_length = 0
 		# check for even case
 		return_string_even = center_expand(s, i, i, length)
 		return_string_odd = center_expand(s, i, i+1, length)
@@ -123,7 +121,7 @@ def outer_layer(matrix, start , end, spiral):
 	outer_layer(matrix[1:-1], start+1, end-1, spiral)
 	return spiral
 
-def soln(matrix):
+def soln2(matrix):
 	end = len(matrix[0])
 	return outer_layer(matrix, 0, end, [])
 
@@ -183,7 +181,7 @@ my_soln = Solution()
 # [1, 4, 5, 9, 2, 3]
 
 
-class Solution(object):
+class Solution2(object):
     def nextPermutation(self, nums):
         """
         :type nums: List[int]
@@ -200,12 +198,12 @@ class Solution(object):
         	nums[j], nums[i] = nums[i], nums[j]
         nums[i+1:] = nums[i+1:][::-1]
 
-my_soln = Solution()
+my_soln = Solution2()
 my_array= [1, 3, 2]
 my_soln.nextPermutation(my_array)
 print(my_array)
 
-class Solution(object):
+class Solution3(object):
     def divide(self, dividend, divisor):
         """
         :type dividend: int
@@ -232,5 +230,5 @@ class Solution(object):
         if negative and neg_dividend:
         	quotient = 0 - quotient
         return quotient
-my_soln = Solution()
+my_soln = Solution3()
 print(my_soln.divide(-2147483648, -1))
