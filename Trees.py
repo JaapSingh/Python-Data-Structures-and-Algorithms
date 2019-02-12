@@ -60,7 +60,7 @@ def insert(root, value):
 #inserts a sorted array into a balanced BST
 def insert_array(node, array):
     if array:
-        mid = (len(array))/2
+        mid = int((len(array))/2)
         insert(node, array[mid])
         insert_array(node, array[:mid])
         insert_array(node, array[mid+1:])
@@ -68,9 +68,9 @@ def insert_array(node, array):
 # DFS Print
 def print_tree_DFS(node):
     if node is None: return
-    print_tree(node.left)
+    print_tree_DFS(node.left)
     print(node.value)
-    print_tree(node.right)
+    print_tree_DFS(node.right)
 
 # BFS Print
 def print_tree_BFS(node):

@@ -8,7 +8,7 @@ class Node:
     def traversal(self):
         node = self
         while node != None:
-            print node.value
+            print(node.value)
             node = node.next
 
 # Wrapper

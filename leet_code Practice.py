@@ -1,15 +1,15 @@
 # given a contiguous sequence of numners in which each number repeats thrice, find the missing number
 # 	e.g. 11122333: 2
-def soln(my_string):
-	blocks = map(''.join, zip(*[iter(my_string)]*3))
-	if len(blocks)*3 != len(my_string): return my_string[-1]
-	for block in blocks:
-		if (block[1] != block[2]):
-			return block[1]
-	return "all match!"
+# def soln(my_string):
+# 	blocks = map(''.join, zip(*[iter(my_string)]*3))
+# 	if len(blocks)*3 != len(my_string): return my_string[-1]
+# 	for block in blocks:
+# 		if (block[1] != block[2]):
+# 			return block[1]
+# 	return "all match!"
 
 
-print(soln("111222333444"))
+# print(soln("111222333444"))
 
 # find the longest palindromic substring in s
 
@@ -188,7 +188,6 @@ class Solution2(object):
         :rtype: void Do not return anything, modify nums in-place instead.
         """
         i = len(nums)-2
-        min_so_far = i
         while (i>=0 and nums[i + 1] <= nums[i]):
         	i-=1
         if (i>=0):
